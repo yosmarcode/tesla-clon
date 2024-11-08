@@ -1,24 +1,33 @@
 ---
+import Footer from '@components/Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
+import NavBars from './NavBars.astro';
+
 interface Props {
-	title: string;
+	title?: string;
+	descriptions?: string;
+	imgPublic?: string
 }
 
-const { title } = Astro.props;
+const { title, descriptions, imgPublic = '' } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es" class="scroll">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={descriptions} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
+	<NavBars />
 	<body>
 		<slot />
 	</body>
+	<Footer />
 </html>
 <style is:global>
 	:root {
@@ -34,7 +43,7 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
+		background: #ffffff;
 	}
 	code {
 		font-family:

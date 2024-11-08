@@ -1,0 +1,19 @@
+---
+interface Props {
+    class: string,
+    urlVideo?: string
+}
+
+const {class: className, urlVideo} = Astro.props as Props
+---
+
+<div
+  class=`${className}`
+>
+  <video
+    class="w-full h-full object-cover cv"
+    src="/video/Homepage-Demo-Drive-Desktop-NA.webm"
+    autoplay
+    loop
+    muted></video>
+</div>

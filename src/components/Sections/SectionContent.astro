@@ -1,0 +1,63 @@
+---
+import LinksComponent from "@components/LinksComponent.astro";
+import LogoWeRobot from "src/assets/logo/LogoWeRobot.astro";
+
+interface Props {
+  class?: string;
+  srcImgBackground?: string;
+  mainTitle?: string;
+  linkAgenda?: string;
+  titleAgenda?: string;
+  btnNameOrden?: string;
+  linkOrdenAcctions?: string | any;
+  btnNameInformations?: string;
+  linkNameInformations?: string;
+}
+
+const {
+  class: className,
+  srcImgBackground,
+  mainTitle,
+  linkAgenda,
+  titleAgenda,
+  btnNameOrden,
+  linkOrdenAcctions,
+  btnNameInformations,
+  linkNameInformations,
+} = Astro.props as Props;
+---
+
+<div class=`${className} `>
+  <div
+    class="w-full h-auto bg-cover bg-center bg-no-repeat overflow-hidden rounded-2xl"
+    style=`background-image: url(${srcImgBackground}); z-index: 0;`
+  >
+    <div class="h-screen text-center pt-6">
+      <div class="m-1">
+        <h1 class="text-white font-semibold text-5xl ">{mainTitle ?? ''}</h1>
+        <div class="pt-6">
+        <LinksComponent
+        hrefLink={linkAgenda ?? ''}
+        class="text-white hover:font-semibold text-sm"
+        title={titleAgenda ?? ''}
+        isTarget={true}
+      />
+    </div>
+        <div class="h-screen flex  justify-center place-content-center gap-4  pt-[30rem]">
+        <LinksComponent
+          hrefLink={linkOrdenAcctions ?? ''}
+          class="bg-blue-700 rounded-md text-white text-sm w-full lg:w-72  h-12 text-center p-3 hover:contrast-125"
+          title={btnNameOrden ?? ''}
+          isTarget={true}
+        />
+        <LinksComponent
+        hrefLink={linkNameInformations}
+        class="bg-gray-200 rounded-md text-black text-sm w-full lg:w-72 h-12 text-center p-3 hover:contrast-125"
+        title={btnNameInformations ?? ''}
+        isTarget={true}
+      />
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+---
+import LinksComponent from "@components/LinksComponent.astro";
+import LogoWeRobot from "src/assets/logo/LogoWeRobot.astro";
+
+interface Props {
+  class?: string;
+  srcImgBackground?: string;
+  mainTitle?: string;
+  linkAgenda?: string;
+  titleAgenda?: string;
+  btnNameOrden?: string;
+  btnOrdenAcctions?: string | any;
+  btnNameInformations?: string;
+  linkNameInformations?: string;
+}
+
+const {
+  class: className,
+  srcImgBackground,
+  mainTitle,
+  linkAgenda,
+  titleAgenda,
+  btnNameOrden,
+  btnOrdenAcctions,
+  btnNameInformations,
+  linkNameInformations,
+} = Astro.props as Props;
+---
+
+<section class=`${className}`>
+  <div
+    class=" w-full h-screen bg-cover bg-center bg-no-repeat overflow-hidden"
+    style=`background-image: url(${srcImgBackground}); z-index: 0;`
+  >
+    <div class="h-screen grid justify-start place-items-center pt-52">
+      <div class="m-6">
+        <LogoWeRobot />
+        <div class="pt-8">
+        <LinksComponent
+          hrefLink="/"
+          class="bg-gray-200 rounded-md text-black text-sm lg:w-64 h-12 text-center p-3 hover:contrast-125"
+          title="Más Información"
+          isTarget={true}
+        />
+      </div>
+      </div>
+    </div>
+  </div>
+</section>

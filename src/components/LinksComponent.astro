@@ -1,0 +1,13 @@
+---
+interface Props {
+    hrefLink?: string
+    title?: string
+    class?: string
+    isTarget?: boolean
+}
+
+const {hrefLink, title, class: className, isTarget} = Astro.props as Props
+---
+{isTarget ?
+(<a href={hrefLink ?? ''} class=`${className}` target="_blank">{title ?? ''}</a>) :
+(<a href={hrefLink ?? ''} class=`${className}` target="">{title ?? ''}</a>)}
